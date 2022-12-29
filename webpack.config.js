@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   entry: { main: './src/pages/index.js' },
@@ -39,14 +38,10 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/index.html',
+      favicon: './src/images/favicon.png'
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
-    new FaviconsWebpackPlugin({
-      logo: './src/images/favicon.png',
-      mode: 'webapp',
-      devMode: 'webapp'
-    })
   ]
 }
